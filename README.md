@@ -1,11 +1,12 @@
 # YpoxreotikiErgasiaSept22_E16042_ZIRGANOS_DIMITRIOS
 
 # Προϋποθέσεις προγράμματος
-Για την λειτουργία του προγράμματος εγκαθιστούμε την Python και τις βιβλιοθήκες
+Για την λειτουργία του προγράμματος εγκαθιστούμε την Python το MongoDB Compass και τις βιβλιοθήκες
 Pymongo json flask
-Δημιουργουμε ενα docker image συνδεδεμενο με ενα container της MONGODB και βάζουμε την βάση δεδομένων DSAirlines με collections users,reservations,flights.
-Από τα αρχεία json users και flights βάζουμε όλα τα στοιχεία στα αντίστοιχα collections.
+Ανοίγουμε το MongoDB Compass και βάζουμε την βάση δεδομένων DSAirlines με collections users,reservations,flights.
+Από τα αρχεία json users και flights βάζουμε όλα τα στοιχεία στα αντίστοιχα collections (users.json στο collection users flights.json στο collection flights.
 Για να τρέξει το πρόγραμμα χρησιμοποιούμε το Pycharm
+Δεν κατάφερα να χρησιμοποιήσω docker.
 
 #Λειτουργία προγράμματος
 Για να κάνουμε τα request χρησιμοποιούμε το POSTMAN με url http://127.0.0.1:5000/ και το app root της κάθε συνάρτησης. Για να εισάγουμε τα δεδομένα μας, πατάμε στο raw και συμπληρώνουμε τα στοιχεία
