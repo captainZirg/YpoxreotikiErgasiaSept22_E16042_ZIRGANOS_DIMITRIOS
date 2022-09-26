@@ -51,12 +51,78 @@ Pymongo json flask
 Εάν ο χρήστης ανήκει στην κατηγορία disabled τότε δεν μπορεί να κάνει login.
 Σε περίπτωση που δεν εισάγει σωστά τα δεδομένα του εμφανίζεται και το ανάλογο μήνυμα
 
+Παράδειγμα επιτυχημένου login
 
 ![image](https://user-images.githubusercontent.com/105843945/192243088-5fc58919-3fe4-4c00-b72a-aa21bce82ed4.png)
 
 ![image](https://user-images.githubusercontent.com/105843945/192243374-e3cfde1a-76a9-49dc-a33b-573d5565e9b1.png)
 
+Παράδειγμα αποτυχημένου login
 
 
+![image](https://user-images.githubusercontent.com/105843945/192250187-1748daf9-53b3-475e-8472-52d2de32efcf.png)
+
+Παράδειγμα αποτυχημένου login λόγω disabled category
 
 
+![image](https://user-images.githubusercontent.com/105843945/192250473-3179ace3-9ec8-4dad-a7b4-4743cd000fbb.png)
+
+
+#Function disableThisUser
+Ελέγχει αρχικά εάν τα δεδομένα είναι σωστά.
+Σε περίπτωση που ο user είναι disabled στέλνει το απαραίτητο μήνυμα.
+Διαφορετικά αλλάζει το category σε disabled και βάζει ένα recoveryPassword που του δίνει την δυνατότητα να αλλάξει το category ξανά σε user.
+Το recoveryPassword επιλέγεται με τυχαίο τρόπο μέσα από χαρακτήρες και αριθμούς.
+
+Παράδειγμα επιτυχημένου disableThisUser
+
+![image](https://user-images.githubusercontent.com/105843945/192251956-f6e1881f-aea6-4981-a9f6-c3280017581f.png)
+
+
+#Function enableThisUser
+Ο χρήστης περνάει το διαβατήριο και το password που του δόθηκε κατά την disableThisUser.
+Σε περίπτωση που είναι σωστό, τότε το category αλλάζει σε user.
+
+Παράδειγμα επιτυχημένου enableThisUser
+
+![image](https://user-images.githubusercontent.com/105843945/192252832-384b7e5a-2d23-4bdd-b337-f486872e6b92.png)
+
+
+#Function createAdmin
+Ελέγχει ότι ο χρήστης δεν είναι user.Έπειτα ελέγχει εάν το email που εισήγαγε ο admin υπάρχει ήδη στην βάση. Εάν δεν υπάρχει τότε δημιουργείται ένας νέος admin.
+
+
+Παράδειγμα επιτυχημένου createAdmin
+
+
+![image](https://user-images.githubusercontent.com/105843945/192254101-3e5879eb-cc07-4b19-b8bc-cd2593eb8a2e.png)
+
+
+#Function insert flight
+Αρχικά ελέγχει ότι ο χρήστης δεν είναι user. Σε περίπτωση που είναι δεν του επιτρέπεται η πρόσβαση. Εάν και μόνο αν είναι admin τότε μπορεί να εισάγει τα δεδομένα date,departure,destination,cost και duration.
+Ο μοναδικός αριθμός πτήσης προκύπτει από τους πρώτους χαρακτήρες που ζητάει η εκφώνηση. Αυτό επιτυγχάνεται με την slice και μετά με την ένωση σε ένα string και την ανάθεση του ως flightID.
+
+Παράδειγμα επιτυχημένου insert flight
+
+![image](https://user-images.githubusercontent.com/105843945/192256119-c660a1c3-ce96-4e63-8f69-71d3a20d008c.png)
+
+
+![image](https://user-images.githubusercontent.com/105843945/192256171-bbb44a95-5b13-4620-b827-0e0cff59d435.png)
+
+
+#Function update flight
+
+Αρχικά ελέγχει ότι ο χρήστης δεν είναι user. Έπειτα ψάχνει τις πτήσεις με το επιθυμητό flightID. Εάν βρει ελέγχει ότι η διαθεσιμότητα είναι 220. Μετά βάζει το επιθυμητό κόστος που ελέγχεται εάν είναι μεγαλύτερο του μηδέν.Τότε εισάγεται το νέο κόστος. Σε οποιαδήποτε άλλη περίπτωση στέλνονται τα ανάλογα μηνύματα.
+
+Παράδειγμα επιτυχημένου update flight
+
+![image](https://user-images.githubusercontent.com/105843945/192257416-a1de884e-c787-469c-b351-48e6422ac48e.png)
+
+![image](https://user-images.githubusercontent.com/105843945/192257464-83fa8adc-6429-43cd-a5e6-44001ce3f6de.png)
+
+
+#Function delete flight
+
+Αρχικά ελέγχει ότι ο χρήστης δεν είναι user. Έπειτα ψάχνει βάσει του flightID την πτήση. Εάν υπάρχει την διαγράφει.
+
+![image](https://user-images.githubusercontent.com/105843945/192257987-9e0318e6-6cd4-4373-9655-591bc8ca9ce0.png)
