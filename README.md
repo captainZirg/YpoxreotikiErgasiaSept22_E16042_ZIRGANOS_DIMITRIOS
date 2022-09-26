@@ -4,6 +4,7 @@
 Για την λειτουργία του προγράμματος εγκαθιστούμε την Python και τις βιβλιοθήκες
 Pymongo json flask
 Δημιουργουμε ενα docker image συνδεδεμενο με ενα container της MONGODB και βάζουμε την βάση δεδομένων DSAirlines με collections users,reservations,flights.
+Από τα αρχεία json users και flights βάζουμε όλα τα στοιχεία στα αντίστοιχα collections.
 Για να τρέξει το πρόγραμμα χρησιμοποιούμε το Pycharm
 
 #Λειτουργία προγράμματος
