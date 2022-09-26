@@ -1,0 +1,12 @@
+[{
+  "_id": {
+    "$oid": "63318485dc93dcff8265b97c"
+  },
+  "date": "2012-04-23T18:25:43.511Z",
+  "departure": "Athens",
+  "destination": "Paris",
+  "cost": "50",
+  "duration": "5",
+  "availability": 220,
+  "flightID": "AP12042318"
+}]

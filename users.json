@@ -1,0 +1,57 @@
+[{
+  "_id": {
+    "$oid": "632ec849b64d88ee02992425"
+  },
+  "email": "dimitasds.zirganodsdsoos@gmail.com",
+  "username": "tedssddsasdst",
+  "name": "dimidstris",
+  "surname": "zirganoos",
+  "password": "ddsada1adada",
+  "passport": "AN1234567",
+  "category": "disabled",
+  "recoveryPass": "tGLNPvoRDSsZ"
+},{
+  "_id": {
+    "$oid": "632ed10ef816dbe008df7c98"
+  },
+  "email": "dimitasds.zirga8nodsdsoos@gmail.com",
+  "username": "tedssdds8asdst",
+  "name": "dimidstris",
+  "surname": "zirganoos",
+  "password": "ddsada1adada",
+  "passport": "AN1234587",
+  "category": "user",
+  "recoveryPass": ""
+},{
+  "_id": {
+    "$oid": "63303dad59de105acf1770b1"
+  }
+},{
+  "_id": {
+    "$oid": "62c46c6526301977eec74ea0"
+  },
+  "email": "dimitris.zirganos@hotmail.com",
+  "name": "Dimitris",
+  "password": "zirganos123",
+  "category": "admin"
+},{
+  "_id": {
+    "$oid": "63316c8cb466306ba58d4ba4"
+  },
+  "email": "dimitris.zirganos@yahoo.com",
+  "username": "Zirganos",
+  "name": "Dimitris",
+  "surname": "zirganoos",
+  "password": "ddsada1adada",
+  "passport": "AN1211587",
+  "category": "disabled",
+  "recoveryPass": "GiTZgT6rBjqz"
+},{
+  "_id": {
+    "$oid": "63317dfe083f2fcbd1c85d63"
+  },
+  "email": "dimitris.zirganoos@hotmail.com",
+  "name": "dimitris",
+  "password": "zirganos123",
+  "category": "newAdmin"
+}]
