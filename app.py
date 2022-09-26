@@ -13,6 +13,7 @@ client = MongoClient('mongodb://localhost:27017/')
 db = client['DSAirlines']
 # Choose collections
 users = db['users']
+users = db['users']
 reservations = db['reservations']
 flights = db['flights']
 app = Flask(__name__)
@@ -108,20 +109,20 @@ def login():
     # Checking if email exists
     if users.find_one({"email": data["email"]}):
         # Finding a user that has a matching email
-        global user_with_matching_email
-        user_with_matching_email = users.find_one({"email": data['email']})
+        global selected_user
+        selected_user = users.find_one({"email": data['email']})
         # Checking Password
-        if user_with_matching_email['password'] == data['password']:
-            if user_with_matching_email['category'] != "disabled":
+        if selected_user['password'] == data['password']:
+            if selected_user['category'] != "disabled":
                 global user_email
                 global user_category
                 global user_username
                 global user_name
                 user_email = str(data['email'])
-                user_name = str(user_with_matching_email['name'])
-                user_category = str(user_with_matching_email['category'])
+                user_name = str(selected_user['name'])
+                user_category = str(selected_user['category'])
                 if user_category != 'admin' and user_category != "newAdmin":
-                    user_username = str(user_with_matching_email['username'])
+                    user_username = str(selected_user['username'])
                 else:
                     user_username = "Admin"
                     user_name = "Admin"
@@ -141,11 +142,11 @@ def login():
 @app.route('/disableThisUser', methods=['POST', 'GET'])
 def disable_this_user():
     global user_category
-    global user_with_matching_email
+    global selected_user
     # Empty string as temporary Password
     temp_pass = ""
-    if users.find_one({"username": user_with_matching_email['username']}):
-        matching_user = users.find_one({"username": user_with_matching_email['username']})
+    if users.find_one({"username": selected_user['username']}):
+        matching_user = users.find_one({"username": selected_user['username']})
         if matching_user['category'] == 'user':
 
             # Generate other characters
@@ -184,9 +185,9 @@ def enable_this_user():
                         mimetype="application/json")
     global userPassport
     global userTempPass
-    global user_with_matching_email
-    if users.find_one({"recoveryPass": user_with_matching_email['recoveryPass']}):
-        matchingUser = users.find_one({"recoveryPass": user_with_matching_email['recoveryPass']})
+    global selected_user
+    if users.find_one({"recoveryPass": selected_user['recoveryPass']}):
+        matchingUser = users.find_one({"recoveryPass": selected_user['recoveryPass']})
         db.users.update_one({"username": matchingUser['username']},
                             {"$set": {'category': "user", "recoveryPass": ""}})
 
@@ -285,7 +286,7 @@ def create_admin():
             return Response("bad request", status=500, mimetype='application/json')
         if not "email" in data or not "name" in data or not "password" in data:
             return Response("Information incomplete", status=500,
-                            mimetype="application/json")  
+                            mimetype="application/json")
 
         # Checking email
         if not (users.find_one({"email": data["email"]})):
@@ -407,3 +408,4 @@ def deleteFlight():
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000)
+
